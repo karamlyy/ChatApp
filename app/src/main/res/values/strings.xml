@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Realtime Chatapp</string>
+    <string name="username">Martina Wolna</string>
+    <string name="search_input">Search...</string>
+    <string name="chatrooms">Chatrooms</string>
+    <string name="chatroom_admin">Karam \nAfandi</string>
+    <string name="user">Karam Afandi</string>
+    <string name="last_message">Hi, Karam. How are you?</string>
+</resources>
