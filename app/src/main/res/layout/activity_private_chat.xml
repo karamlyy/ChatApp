@@ -4,6 +4,54 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.PrivateChatActivity">
+    tools:context=".ui.PrivateChatActivity"
+    android:background="@color/main_background">
 
+    <ImageView
+        android:id="@+id/private_chat_profile1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="51dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/group" />
+
+    <ImageView
+        android:id="@+id/private_chat_profile2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="51dp"
+        app:layout_constraintStart_toEndOf="@+id/private_chat_profile1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/group" />
+
+    <TextView
+        android:id="@+id/user1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="51dp"
+        android:layout_marginEnd="35dp"
+        android:gravity="right|bottom"
+        android:text="@string/user1"
+        android:textAppearance="@style/private_chat_username"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/user2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="35dp"
+        android:gravity="right|bottom"
+        android:text="@string/user2"
+        android:textAppearance="@style/private_chat_username"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/user1" />
 </androidx.constraintlayout.widget.ConstraintLayout>

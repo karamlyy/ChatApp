@@ -1,22 +1,35 @@
-package com.example.realtimechatapp.ui
+package com.example.realtimechatapp.ui.main
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
+import android.widget.ImageView
+import android.widget.Toast
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.realtimechatapp.R
 import com.example.realtimechatapp.adapter.ChatroomRecyclerviewAdapter
 import com.example.realtimechatapp.adapter.UsersRecyclerviewAdapter
+import com.example.realtimechatapp.firebase.FirebaseManager
+import com.example.realtimechatapp.models.AppState
+import com.example.realtimechatapp.models.ChatType
+import com.example.realtimechatapp.ui.ChatroomActivity
+import com.example.realtimechatapp.ui.PrivateChatActivity
+import com.example.realtimechatapp.ui.signin.SignInViewModel
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var recyclerViewChatrooms: RecyclerView
     private lateinit var recyclerViewUsers: RecyclerView
+    private lateinit var viewModel: MainViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        viewModel = ViewModelProvider(this)[MainViewModel::class.java]
 
         recyclerViewChatrooms = findViewById(R.id.recyclerViewChatrooms)
         recyclerViewUsers = findViewById(R.id.recyclerViewUsers)
@@ -62,6 +75,24 @@ class MainActivity : AppCompatActivity() {
 
         recyclerViewUsers.adapter = adapterUsers
 
+        viewModel.appState.observe(this, Observer {
+            if (it == null) return@Observer
+            when(it){
+                is AppState.Success ->
+                    Toast.makeText(this@MainActivity, it.data, Toast.LENGTH_SHORT).show()
+                is AppState.Error ->
+                    Toast.makeText(this@MainActivity, it.message, Toast.LENGTH_SHORT).show()
+            }
+        })
+        val createChatButton = findViewById<ImageView>(R.id.createChat)
+
+        createChatButton.setOnClickListener {
+            viewModel.createChat(
+                users = listOf(FirebaseManager.instance.user.id,"EyPJVG6Zn9K11YUZqC9K"),
+                type = ChatType.PRIVATE,
+                name = "Rza"
+            )
+        }
 
     }
 }
