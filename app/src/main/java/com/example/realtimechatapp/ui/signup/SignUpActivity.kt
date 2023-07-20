@@ -1,5 +1,6 @@
 package com.example.realtimechatapp.ui.signup
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -8,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.realtimechatapp.R
 import com.example.realtimechatapp.databinding.ActivitySignUpBinding
 import com.example.realtimechatapp.models.AppState
+import com.example.realtimechatapp.ui.signin.SignInActivity
 import com.example.realtimechatapp.ui.signin.SignInViewModel
 
 class SignUpActivity : AppCompatActivity() {
@@ -36,8 +38,14 @@ class SignUpActivity : AppCompatActivity() {
             viewModel.signup(
                 email = binding.emailEditText.text.toString(),
                 username = binding.userNameEditText.text.toString(),
-                password = binding.passwordEditText.text.toString()
+                password = binding.passwordEditText.text.toString(),
+                profilePhoto = binding.choosePhoto.text.toString(),
             )
+        }
+
+        binding.changeToSignIn.setOnClickListener {
+            val intent = Intent(this, SignInActivity::class.java)
+            startActivity(intent)
         }
     }
 }

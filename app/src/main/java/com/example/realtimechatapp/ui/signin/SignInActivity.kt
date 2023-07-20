@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.realtimechatapp.databinding.ActivitySignInBinding
 import com.example.realtimechatapp.models.AppState
 import com.example.realtimechatapp.ui.main.MainActivity
+import com.example.realtimechatapp.ui.signup.SignUpActivity
 
 class SignInActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignInBinding
@@ -41,6 +42,11 @@ class SignInActivity : AppCompatActivity() {
                 username = binding.userNameEditText.text.toString(),
                 password = binding.passwordEditText.text.toString()
             )
+        }
+
+        binding.changeToSignUp.setOnClickListener {
+            val intent = Intent(this, SignUpActivity::class.java)
+            startActivity(intent)
         }
     }
 }

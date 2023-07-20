@@ -15,7 +15,7 @@ class SignUpViewModel : ViewModel() {
 
     val appState: LiveData<AppState<Unit>?> = _appState
 
-    fun signup(email: String, username: String, password: String) {
+    fun signup(email: String, username: String, password: String, profilePhoto: String) {
         viewModelScope.launch {
             try {
                 val success = firebaseManager.register(
@@ -23,6 +23,8 @@ class SignUpViewModel : ViewModel() {
                        email = email,
                        username = username,
                        password = password,
+                       profilePhoto = profilePhoto,
+
                    )
                 )
                 if(success) {

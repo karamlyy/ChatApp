@@ -8,5 +8,15 @@
     <string name="last_message">Hi, Karam. How are you?</string>
     <string name="user1">Karam Afandi</string>
     <string name="user2">Maryam Mammadzada</string>
+    <string name="username_hint">enter username</string>
+    <string name="password_hint">enter password</string>
+    <string name="create_an_account"><u>Create an account</u></string>
+    <string name="have_an_account"><u>Already have an account? Sign In</u></string>
+    <string name="welcome_page">Welcome</string>
+    <string name="create_email">email</string>
+    <string name="create_username">create username</string>
+    <string name="create_password">create password</string>
+    <string name="sign_in">Sign In</string>
+    <string name="sign_up">Sign Up</string>
 
 </resources>
